@@ -34,7 +34,7 @@ a.exe: driver.o ground.o game.o uiInteract.o uiDraw.o point.o lander.o
 #    ground.o      Handles the ground / world
 #    game.o        Handles the game interaction
 ###############################################################
-uiDraw.o: uiDraw.cpp uiDraw.h point.h lander.h
+uiDraw.o: uiDraw.cpp uiDraw.h point.h
 	g++ -c uiDraw.cpp
 
 uiInteract.o: uiInteract.cpp uiInteract.h point.h
@@ -57,7 +57,7 @@ driver.o: driver.cpp game.h uiInteract.h
 #
 # Then, don't forget to add them to the dependecy list for a.out above.
 #######################################################################
-lander.o: lander.cpp lander.h velocity.h point.h
+lander.o: lander.cpp lander.h velocity.h point.h uiDraw.h
 	g++ -c lander.cpp
 
 ###############################################################

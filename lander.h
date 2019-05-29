@@ -64,7 +64,7 @@ public:
    void advance();
 
    // Draws the lander on the screen.
-   void draw();
+   void draw() const;
 
 private:
    Point m_point;         // Lander's position

@@ -10,6 +10,7 @@
  ************************************************************************/
 
 #include "lander.h"
+#include "uiDraw.h"
 
 // Returns true if the thrusters can be activaed
 bool Lander::canThrust() const
@@ -60,7 +61,7 @@ void Lander::advance()
 }
 
 // Draws the lander on the screen.
-void Lander::draw()
+void Lander::draw() const
 {
-
+	drawLander(getPoint());
 }
