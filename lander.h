@@ -1,6 +1,6 @@
 /***********************************************************************
  * Header File:
- *    Point : A class representing a lunar lander
+ *    LANDER : A class representing a lunar lander
  * Author:
  *    Drazen Lucic
  * Summary:
@@ -14,36 +14,68 @@
 #define LANDER_H
 
 #include <iostream>
+#include "point.h"
+#include "velocity.h"
 
 /*********************************************
  * LANDER
- * A vehicle only skilled pilots can control.  
+ * A fast but fragile vehicle that only skilled pilots can control.  
  *********************************************/
-class Point
+class Lander
 {
 public:
    // constructors
-   Point()            : x(0.0), y(0.0)  {}
-   Point(bool check)  : x(0.0), y(0.0)  {}
-   Point(float x, float y);
+   Lander() {}
 
    // getters
-   float getX()       const { return x;              }
-   float getY()       const { return y;              }
+   Point getPoint() const { return m_point; }
+   Velocity getVelocity() const { return m_velocity; }
+   int getFuel() const { return m_fuel; }
 
    // setters
-   void setX(float x);
-   void setY(float y);
-   void addX(float dx)      { setX(getX() + dx);     }
-   void addY(float dy)      { setY(getY() + dy);     }
+   void setPoint(const Point & point) { m_point = point; }
+   void setVelocity(const Velocity & velocity) { m_velocity = velocity; }
+   void setFuel(int fuel) { m_fuel = fuel; }
+   void setAlive(bool alive) { m_alive = alive; }
+   void setLanded(bool landed) { m_landed = landed; }
+
+   // Returns true if the thrusters can be activaed
+   bool canThrust() const;
+
+   // Returns true while the lander is alive
+   bool isAlive() const;
+
+   // Returns true when the lander lands on the platform.
+   bool isLanded() const;
+
+   // Applies gravity on the lander effectively pulling it down
+   void applyGravity(float gravity);
+
+   // Activates lander's left thruster, which pushes the lander to the right.
+   void applyThrustLeft();
+
+   // Activates lander's right thruster, which pushes the lander to the left.
+   void applyThrustRight();
+
+   // Activates lander's bottom thruster, which slows lander's descent.
+   void applyThrustBottom();
+
+   // Advances the lander to a new position.
+   void advance();
+
+   // Draws the lander on the screen.
+   void draw();
 
 private:
-   float x;           // horizontal position
-   float y;           // vertical position
+   Point m_point;         // Lander's position
+   Velocity m_velocity;   // Lander's velocity
+   int m_fuel;            // Lander's fuel quantity
+   bool m_alive;          // A flag indicating if the lander is alive
+   bool m_landed;         // A flag indicating if the lander has landed
 };
 
 // stream I/O useful for debugging
-std::ostream & operator << (std::ostream & out, const Point & pt);
-std::istream & operator >> (std::istream & in,        Point & pt);
+std::ostream & operator << (std::ostream & out, const Lander & lander);
+std::istream & operator >> (std::istream & in,        Lander & lander);
 
 #endif // LANDER_H
