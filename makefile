@@ -72,4 +72,4 @@ tar:
 	tar -cvf $(TARFILE) *.cpp *.h makefile
 
 submit:
-	submit $(TARFILE)
+	/mnt/local/submit/submit.pl $(TARFILE)
