@@ -15,7 +15,13 @@
 
 #include <iostream>
 #include "point.h"
+#include "ground.h"
 #include "velocity.h"
+
+#define UPWARD_THRUST_AMOUNT 0.3
+#define UPWARD_THRUST_FUEL 3
+#define SIDE_THRUST_AMOUNT 0.1
+#define SIDE_THRUST_FUEL 1
 
 /*********************************************
  * LANDER
@@ -38,6 +44,7 @@ public:
    void setFuel(int fuel) { m_fuel = fuel; }
    void setAlive(bool alive) { m_alive = alive; }
    void setLanded(bool landed) { m_landed = landed; }
+   void setGround(Ground * ground) { m_ground = ground; }
 
    // Returns true if the thrusters can be activaed
    bool canThrust() const;
@@ -72,6 +79,8 @@ private:
    int m_fuel;            // Lander's fuel quantity
    bool m_alive;          // A flag indicating if the lander is alive
    bool m_landed;         // A flag indicating if the lander has landed
+
+   Ground * m_ground;
 };
 
 // stream I/O useful for debugging

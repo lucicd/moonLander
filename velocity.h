@@ -35,7 +35,7 @@ public:
 
    // setters
    void setDx(float dx) { m_dx = dx; }
-   void setDy(float dy) { m_dx = dy; }
+   void setDy(float dy) { m_dy = dy; }
 private:
    float m_dx;    // Horizontal velocity component
    float m_dy;    // Vertical velocity component

@@ -59,7 +59,7 @@ game.o: game.h game.cpp uiDraw.h uiInteract.h point.h ground.h lander.h
 driver.o: driver.cpp game.h uiInteract.h
 	g++ -c driver.cpp
 
-lander.o: lander.cpp lander.h velocity.h point.h uiDraw.h
+lander.o: lander.cpp lander.h velocity.h point.h uiDraw.h ground.h game.h
 	g++ -c lander.cpp
 
 ###############################################################

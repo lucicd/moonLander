@@ -38,7 +38,9 @@ public:
    Game(Point tl, Point br) : topLeft(tl), bottomRight(br), ground(Ground(topLeft, bottomRight))
    {
       // Set up the initial conditions of the game
+      lander.setPoint(Point(0, tl.getY()));
       lander.setFuel(FUEL);
+      lander.setGround(&ground);
    }
    
    /*********************************************
@@ -61,7 +63,6 @@ public:
     *********************************************/
    void draw(const Interface & ui);
    
-private:
    /*********************************************
     * Function: justLanded
     * Description: Returns true if the lander has
@@ -69,6 +70,7 @@ private:
     *********************************************/
    bool justLanded() const;
    
+private:
    // The coordinates of the screen
    Point topLeft;
    Point bottomRight;
