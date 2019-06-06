@@ -40,7 +40,7 @@ public:
       // Set up the initial conditions of the game
       lander.setPoint(Point(0, tl.getY()));
       lander.setFuel(FUEL);
-      lander.setGround(&ground);
+      lander.setGround(ground);
    }
    
    /*********************************************
