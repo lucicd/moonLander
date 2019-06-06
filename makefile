@@ -1,6 +1,6 @@
 ###############################################################
 # Program:
-#     Milestone 06, Moon Lander
+#     Project 07, Moon Lander
 #     Brother Dudley, CS165
 # Author:
 #     Drazen Lucic
