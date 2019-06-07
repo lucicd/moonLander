@@ -69,6 +69,8 @@ void Lander::applyThrustBottom()
 // Advances the lander to a new position.
 void Lander::advance()
 {
+   // m_point.setX(150);
+   // m_point.setY(150);
    m_point.setX(m_point.getX() + m_velocity.getDx());
    m_point.setY(m_point.getY() + m_velocity.getDy());
 }

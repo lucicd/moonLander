@@ -32,16 +32,10 @@ class Game
 {
 public:
    /*********************************************
-    * Constructor
-    * Initializes the game
-    *********************************************/
-   Game(Point tl, Point br) : topLeft(tl), bottomRight(br), ground(Ground(topLeft, bottomRight))
-   {
-      // Set up the initial conditions of the game
-      lander.setPoint(Point(0, tl.getY()));
-      lander.setFuel(FUEL);
-      lander.setGround(ground);
-   }
+   * Constructor
+   * Initializes the game
+   *********************************************/
+   Game(Point tl, Point br);
    
    /*********************************************
     * Function: handleInput

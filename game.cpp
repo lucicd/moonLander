@@ -17,6 +17,32 @@
 #include "point.h"
 #include "ground.h"
 #include "lander.h"
+#include "velocity.h"
+#include <time.h>
+
+/*********************************************
+ * Constructor
+ * Initializes the game
+ *********************************************/
+Game :: Game(Point tl, Point br) : 
+topLeft(tl), bottomRight(br), ground(Ground(topLeft, bottomRight))
+{
+   // Set up the initial conditions of the game
+   
+   // Set random initial horizontal velocity between -2 and 2 pixels per frame.
+   std::srand(time(0));
+   float initialVelocity = static_cast<float>(rand() % 5 - 2);
+   lander.setVelocity(Velocity(initialVelocity, 0));
+   
+   // Set starting lander position to the top center of the screen.
+   lander.setPoint(Point(0, tl.getY()));
+
+   // Set fuel level
+   lander.setFuel(FUEL);
+
+   // The lander must be aware of the ground
+   lander.setGround(ground);
+}
 
 /******************************************
  * GAME :: JUST LANDED

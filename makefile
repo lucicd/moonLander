@@ -8,13 +8,15 @@
 #     This is the first milestone of the Moon Lander project.
 #     It provides the code to compile and draw a lander on the screen.
 # Above and Beyond
-#     When you submit your final project (not for milestones),
-#     list anything here that you did to go above and beyond
-#     the base requirements for your project.
+#     1. I modified the makefile to detect the operating system (Windows or Linux)
+#        and adjust compiler's flags accordingly.
+#     2. I added two new general rules to the makefile: tar and submit
+#     3. I used a random number generator to set the initial horizontal
+#        velocity of the lander (Game constructor in the game.cpp file).
 ###############################################################
 
 
-TARFILE = moonLanderMS.tar
+TARFILE = moonLander.tar
 
 ifeq ($(OS), Windows_NT)
 	LFLAGS =  -lopengl32 -lglew32 -lfreeglut -lglu32
@@ -53,7 +55,7 @@ point.o: point.cpp point.h
 ground.o: ground.cpp ground.h uiDraw.h point.h
 	g++ -c ground.cpp
 
-game.o: game.h game.cpp uiDraw.h uiInteract.h point.h ground.h lander.h
+game.o: game.h game.cpp uiDraw.h uiInteract.h point.h ground.h lander.h velocity.h
 	g++ -c game.cpp
 
 driver.o: driver.cpp game.h uiInteract.h
