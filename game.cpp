@@ -19,6 +19,7 @@
 #include "lander.h"
 #include "velocity.h"
 #include <time.h>
+#include <stdlib.h>
 
 /*********************************************
  * Constructor
@@ -30,7 +31,7 @@ topLeft(tl), bottomRight(br), ground(Ground(topLeft, bottomRight))
    // Set up the initial conditions of the game
    
    // Set random initial horizontal velocity between -2 and 2 pixels per frame.
-   std::srand(time(0));
+   srand(time(0));
    float initialVelocity = static_cast<float>(rand() % 5 - 2);
    lander.setVelocity(Velocity(initialVelocity, 0));
    
