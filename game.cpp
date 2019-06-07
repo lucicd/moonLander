@@ -18,8 +18,8 @@
 #include "ground.h"
 #include "lander.h"
 #include "velocity.h"
-#include <time.h>
-#include <stdlib.h>
+#include <ctime>
+#include <cstdlib>
 
 /*********************************************
  * Constructor
